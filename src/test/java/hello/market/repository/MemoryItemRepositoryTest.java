@@ -59,7 +59,7 @@ class MemoryItemRepositoryTest {
     Item addedItem = repository.add(item); // 아이템 추가
 
     //when
-    repository.delete(addedItem); // 아이템 삭제
+    repository.delete(addedItem.getId()); // 아이템 삭제
 
     //then
     assertThat(repository.findAll()).doesNotContain(addedItem); // 리스트에 아이템이 삭제되었는지 확인
