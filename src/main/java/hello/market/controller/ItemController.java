@@ -33,14 +33,14 @@ public class ItemController {
   }
 
   @PutMapping("/{id}")
-  public ResponseEntity<Void> updateItem(@PathVariable Long id, @RequestBody Item item) {
+  public ResponseEntity<Void> updateItem(@PathVariable(name="id") Long id, @RequestBody Item item) {
     item.setId(id);
     itemService.update(item);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
+  public ResponseEntity<Void> deleteItem(@PathVariable(name="id") Long id) {
     itemService.delete(id);
     return new ResponseEntity<>(HttpStatus.NO_CONTENT);
   }
