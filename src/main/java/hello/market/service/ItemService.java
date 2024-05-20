@@ -2,12 +2,14 @@ package hello.market.service;
 
 import hello.market.domain.Item;
 import hello.market.repository.ItemRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class ItemService {
 
-  private ItemRepository itemRepository;
+  private final ItemRepository itemRepository;
 
   public ItemService(ItemRepository itemRepository) {
     this.itemRepository = itemRepository;
@@ -29,7 +31,7 @@ public class ItemService {
   }
 
   // 게시글 삭제
-  public void delete(Item item) {
-    itemRepository.delete(item);
+  public void delete(Long itemId) {
+    itemRepository.delete(itemId);
   }
 }

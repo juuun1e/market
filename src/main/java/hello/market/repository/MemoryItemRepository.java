@@ -1,12 +1,14 @@
 package hello.market.repository;
 
 import hello.market.domain.Item;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Repository
 public class MemoryItemRepository implements ItemRepository {
 
   private static Map<Long, Item> items = new HashMap<>();
@@ -25,8 +27,8 @@ public class MemoryItemRepository implements ItemRepository {
   }
 
   @Override
-  public void delete(Item item) {
-    items.remove(item.getId());
+  public void delete(Long itemId) {
+    items.remove(itemId);
   }
 
   @Override

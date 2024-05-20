@@ -84,7 +84,7 @@ public class ItemServiceTest {
     Item addedItem = itemService.add(item);
 
     // when
-    itemService.delete(addedItem);
+    itemService.delete(addedItem.getId());
 
     // then
     assertThat(itemRepository.findAll()).doesNotContain(addedItem); // 삭제된 아이템은 저장소에 없어야 함
